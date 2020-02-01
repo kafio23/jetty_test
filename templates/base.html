@@ -6,13 +6,15 @@
 
   <link rel="icon" href="{% static '/favicon.ico' %}" type="image/x-icon">
   <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'css/app.css' %}">
 
   <title>Jetty App</title>
 </head>
 <body>
-  <div class="container">
-    <h1>BASE d</h1>
+  <div class="container-fluid">
+    {% block content %}
+    {% endblock %}
   </div>
   <!-- <script src="{% static 'app.js' %}"></script> -->
 </body>
