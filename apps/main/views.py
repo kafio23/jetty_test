@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.main.forms import *
+from .forms import LoginForm
 
 
 def login(request):

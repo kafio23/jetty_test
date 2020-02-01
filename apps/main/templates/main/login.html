@@ -4,8 +4,9 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card card-login my-5">
         <div class="card-body">
-          <h2 class="card-title text-center">Login</h2>
-          <form class="form-login" method="post">
+            <img src="{% static 'img/logo-jetty-green.png' %}" width="150" class="rounded mx-auto d-block" alt="Jetty Logo">
+            <h6 class="card-title text-center">Buen Viaje. Siempre.</h6>
+          <form class="form-login mt-5" method="post">
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group">
@@ -13,7 +14,7 @@
             </div>
             {% endfor %}
             <div class="form-actions">
-              <button type="submit" class="btn btn-teal btn-block">
+              <button type="submit" class="btn btn-teal btn-block py-2">
                 Iniciar sesión
               </button>
             </div>
