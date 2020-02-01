@@ -7,6 +7,11 @@
             <img src="{% static 'img/logo-jetty-green.png' %}" width="150" class="rounded mx-auto d-block" alt="Jetty Logo">
             <h6 class="card-title text-center">Buen Viaje. Siempre.</h6>
           <form class="form-login mt-5" method="post">
+            {% if show_alert %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+            {% endif %}
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group">
