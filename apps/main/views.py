@@ -15,16 +15,24 @@ def login(request):
         if form.is_valid():
             parameters = form.cleaned_data
             payload = {"driver": parameters}
-            print(payload)
+
             try:
                 response = req.post(
                     'https://jettymx-st.herokuapp.com/api/drivers/session', json=payload)
 
                 response_parameters = response.json()
-                if "code" in response.json():
+                print(response_parameters)
+
+                if "id" in response_parameters:
+                    context['show_alert'] = False
+                    context['email'] = response_parameters['email']
+                    context['auth_token'] = response_parameters['auth_token']
+
+                    return render(request, "trips/trips_list.html", context)
+
+                if "code" in response_parameters:
                     context['show_alert'] = True
                     context['message'] = response_parameters['message']
-                print(response_parameters)
 
             except Exception as e:
                 print(e)
