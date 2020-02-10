@@ -1,5 +1,29 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base_list.html" %}
 {% block content %}
-<div>Trip</div>
+<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12 text-center my-2 mt-3">
+		<div class="">
+			<h2>Corridas Asignadas</h2>
+			<hr>
+		</div>
+	</div>
+	{% for trip in trips %}
+	<div class="col-sm-4 col-md-4 col-lg-4 mx-auto my-2">
+		<div class="date-box text-center">
+			{{ trip.date }}
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="mb-4">
+					<h5 style="color:4abfa8;">{{ trip.name }}</h5>
+				</div>
+				<div>
+					<h6>Horario de salida:</h6>
+					<p style="color:4abfa8;">{{ trip.time }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}
