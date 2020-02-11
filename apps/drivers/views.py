@@ -23,6 +23,9 @@ def driver(request, driver_id):
             for trip in trips:
                 trip['first_trip_stop'] = trip['trip_stops'][0]
                 trip['last_trip_stop'] = trip['trip_stops'][-1]
+                trip['filtered_trip_stops'] = []
+                if len(trip['trip_stops']) > 2:
+                    trip['filtered_trip_stops'] = trip['trip_stops'][1:-1]
 
         else:
             return redirect('login_url')
