@@ -1,4 +1,4 @@
-{% extends "base_list.html" %} {% block content %}
+{% extends "base_list.html" %} {% load static %} {% block content %}
 <div class="row">
   <div class="col-sm-12 col-md-12 col-lg-12 text-center my-2 mt-3">
     <div class="">
@@ -16,10 +16,19 @@
     </div>
     <div class="card">
       <div class="card-body">
-        <div class="mb-4">
+        <div>
           <h5 style="color:4abfa8; font-weight: bold;">{{ trip.name }}</h5>
         </div>
-        <div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <img src="{{ trip.vehicle.photo }}" style="border: 2px gray solid" height="100" width="100"  width="40" class="rounded-circle" alt="Auto">
+          </div>
+          <div class="col-6">
+            <p style="font-weight: bold; display: block; font-size: 20px;">{{ trip.vehicle.plate }}</p>
+            <p style="display: block;">{{ trip.vehicle.brand }} - {{ trip.vehicle.model }}</p>
+          </div>
+        </div>
+        <div class="mt-4">
           <h6>Horario de salida:</h6>
           <p style="color:4abfa8; font-weight: bold;">{{ trip.time }}</p>
         </div>
