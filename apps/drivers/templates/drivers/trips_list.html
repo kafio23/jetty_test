@@ -9,7 +9,7 @@
 	</div>
 	{% for trip in trips %}
 	<div class="col-sm-4 col-md-4 col-lg-4 mx-auto my-2">
-		<div class="date-box text-center">
+		<div class="date-box text-center mb-2">
 			{{ trip.date }}
 		</div>
 		<div class="card">
@@ -20,7 +20,11 @@
 				<div>
 					<h6>Horario de salida:</h6>
 					<p style="color:4abfa8;">{{ trip.time }}</p>
-				</div>
+        </div>
+        <div>
+          <p class="mb-2">{{ trip.first_trip_stop.address }}</p>
+          <p class="mb-2">{{ trip.last_trip_stop.address }}</p>
+        </div>
 			</div>
 		</div>
 	</div>

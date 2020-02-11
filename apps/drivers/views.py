@@ -20,9 +20,14 @@ def driver(request, driver_id):
         if response.status_code == 200:
             trips = response.json()
             context['trips'] = trips
+            for trip in trips:
+                trip['first_trip_stop'] = trip['trip_stops'][0]
+                trip['last_trip_stop'] = trip['trip_stops'][-1]
+
         else:
             return redirect('login_url')
-    except:
+    except Exception as e:
+        print(e)
         return redirect('login_url')
 
     return render(request, "drivers/trips_list.html", context)
